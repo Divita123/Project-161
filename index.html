@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bowling Game In Virtual Reality</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="./Shoot.js"></script>
+    
+  </head>
+  <body>
+    <a-scene id="scene" background="color:lightblue">
+
+      <!--Assets-->
+      <a-assets>
+      <a-asset-item id="pin" src="./models/pin/scene.gltf"></a-asset-item>
+      <a-asset-item id="ball1" src="./models/shooter/gun.gltf"></a-asset-item>
+      <a-asset-item id="ball2" src="./models/ball/scene.gltf"></a-asset-item>
+
+
+      </a-assets>
+      
+      <!--Light-->
+      <a-entity light="type: ambient; color: white; intensity:0.5"></a-entity>
+
+      <!--Camera and Cursor-->
+      <a-entity
+        id="camera"
+        camera
+        position="0 1.6 0"
+        wasd-controls
+        look-controls="pointerLockEnabled: false"        
+      >
+      <a-entity id="weapon" gltf-model="#ball1" position="0 -4.4 5" rotation="0 180 0" scale="0.35 1 1"></a-entity>
+        <a-cursor></a-cursor>        
+
+      <!--Balls-->
+      <a-entity balls></a-entity>
+
+      <!--Ground-->
+      <a-plane
+        id="ground"
+        repeat="5 5"
+        position="0 0 0"
+        rotation="-90 0 0"
+        height="200"
+        width="200"
+        color="#00ff37"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+
+      <!--Pins-->
+      <a-box id="Pin" gltf-model="#pin" position="-2 1 -8" scale="6, 6, 6"></a-box>
+
+      <a-box id="Pin" gltf-model="#pin" position="-1 1 -8" scale="6, 6, 6"></a-box>
+
+      <a-box id="Pin" gltf-model="#pin" position="0 1 -8" scale="6, 6, 6"></a-box>
+
+      <a-box id="Pin" gltf-model="#pin" position="1 1 -8" scale="6, 6, 6"></a-box>
+
+      <a-box id="Pin" gltf-model="#pin" position="2 1 -8" scale="6, 6, 6"></a-box>
+
+      <a-box id="Pin" gltf-model="#pin" position="3 1 -8" scale="6, 6, 6"></a-box>
+
+    </a-scene>
+  </body>
+</html>
